@@ -9,9 +9,17 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Get API endpoint from environment variable
+LLAMA_API_ENDPOINT = os.getenv('LLAMA_API_ENDPOINT')
+if not LLAMA_API_ENDPOINT:
+    st.error("Please set the LLAMA_API_ENDPOINT in your .env file")
+
 def generate_llama_response(prompt):
     """Generate response using Llama API."""
     try:
+        if not LLAMA_API_ENDPOINT:
+            return "Error: API endpoint not configured"
+
         headers = {
             "Content-Type": "application/json",
         }
@@ -26,9 +34,8 @@ def generate_llama_response(prompt):
             "temperature": 0.7
         }
         
-        # You would replace this with the actual Llama API endpoint
         response = requests.post(
-            "YOUR_LLAMA_API_ENDPOINT",
+            LLAMA_API_ENDPOINT,
             headers=headers,
             json=data
         )
