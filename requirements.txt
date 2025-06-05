@@ -1,0 +1,13 @@
+streamlit==1.32.0
+python-docx==1.1.0
+requests==2.31.0
+python-dotenv==1.0.1
+LLAMA_API_ENDPOINT=https://api.deepseek.com/v1/chat/completions
+LLAMA_API_KEY=sk-1234567890
+LLAMA_MODEL=deepseek-chat
+LLAMA_TEMPERATURE=0.5
+LLAMA_MAX_TOKENS=1000
+LLAMA_TOP_P=1
+LLAMA_FREQUENCY_PENALTY=0
+LLAMA_PRESENCE_PENALTY=0
+LLAMA_STOP=None
